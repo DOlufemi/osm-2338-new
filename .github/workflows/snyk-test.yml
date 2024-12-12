@@ -6,17 +6,17 @@ on:
 
 jobs:
   security:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # ratchet:actions/checkout@v3
-      name: Set up Scala
-    - uses: olafurpg/setup-scala@56b893ae09c48f21c16a9793a107c2723ccc123a # ratchet:olafurpg/setup-scala@v13
-      with:
-        java-version: openjdk@1.17.0
-    - name: Setup Snyk
-      uses: snyk/actions/setup@cdb760004ba9ea4d525f2e043745dfe85bb9077e # ratchet:snyk/actions/setup@master
-    - name: Run Snyk to check for vulnerabilities
-      env:
-        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        SNYK_API: https://api.snyk.io
-    - run: snyk test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # ratchet:actions/checkout@v3
+        name: Set up Scala
+      - uses: olafurpg/setup-scala@56b893ae09c48f21c16a9793a107c2723ccc123a # ratchet:olafurpg/setup-scala@v13
+        with:
+          java-version: openjdk@1.17.0
+      - name: Setup Snyk
+        uses: snyk/actions/setup@cdb760004ba9ea4d525f2e043745dfe85bb9077e # ratchet:snyk/actions/setup@master
+      - name: Run Snyk to check for vulnerabilities
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          SNYK_API: https://api.snyk.io
+        run: snyk test
