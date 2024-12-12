@@ -21,6 +21,4 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
           SNYK_API: https://api.snyk.io
-        run: scala -version
-        run: sbt sbtVersion
         run: snyk test
