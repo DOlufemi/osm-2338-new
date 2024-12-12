@@ -15,7 +15,7 @@ jobs:
           java-version: openjdk@1.17.0
       - name: Setup Snyk
         uses: snyk/actions/setup@cdb760004ba9ea4d525f2e043745dfe85bb9077e # ratchet:snyk/actions/setup@master
-      - run: sbt sbtVersion
+#      - run: sbt sbtVersion
       - name: Run Snyk to check for vulnerabilities
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
